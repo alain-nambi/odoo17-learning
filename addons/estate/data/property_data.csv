@@ -1,0 +1,4 @@
+name,description,postcode,date_availability,expected_price,selling_price,bedrooms,living_area,facades,garage,garden,garden_area,garden_orientation
+Cozy Cottage in the Woods,"Charming 2-bedroom cottage...",90210,2024-12-01,250000.00,0.00,2,1200,4,False,True,800,south
+Modern Apartment with City Views,"Stylish 1-bedroom...",10001,2024-11-15,450000.00,0.00,1,900,2,True,False,0,
+Spacious Family Home in Suburbia,"Spacious 4-bedroom...",78704,2025-01-01,680000.00,0.00,4,2500,4,True,True,1200,west
