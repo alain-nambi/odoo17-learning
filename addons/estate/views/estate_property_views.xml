@@ -3,16 +3,22 @@
     <data> 
         <!-- Action for estate.property -->
         <record id="estate_property_action" model="ir.actions.act_window">
+            <!-- Define the action name and model -->
             <field name="name">Estate Properties</field>
             <field name="res_model">estate.property</field>
+            <!-- Specify the view modes (tree and form) -->
             <field name="view_mode">tree,form</field>
         </record>
 
+        <!-- Tree view for estate.property -->
         <record id="estate_property_view_tree" model="ir.ui.view">
+            <!-- Define the view name and model -->
             <field name="name">estate.property.view.tree</field>
             <field name="model">estate.property</field>
+            <!-- Define the tree view architecture -->
             <field name="arch" type="xml">
                 <tree string="Estate Tree">
+                    <!-- Display the following fields in the tree view -->
                     <field name="name" string="Title"/>
                     <field name="postcode" string="Postcode" />
                     <field name="bedrooms"/>
@@ -24,17 +30,22 @@
             </field>
         </record>
 
+        <!-- Form view for estate.property -->
         <record id="estate_property_view_form" model="ir.ui.view">
-            <field name="name">estate_property.view.form</field>
+            <!-- Define the view name and model -->
+            <field name="name">estate.property.view.form</field>
             <field name="model">estate.property</field>
+            <!-- Define the form view architecture -->
             <field name="arch" type="xml">
                 <form string="Estate Form">
                     <sheet>
+                        <!-- Display the property title -->
                         <div class="oe_title">
                             <h1 class="mb28">
                                 <field name="name" class="mb16"/>
                             </h1>
                         </div>
+                        <!-- Display property details -->
                         <group>
                             <group>
                                 <field name="postcode" string="Postcode" />
@@ -45,6 +56,7 @@
                                 <field name="selling_price"/>
                             </group>
                         </group>
+                        <!-- Display property description and features -->
                         <notebook>
                             <page string="Description">
                                 <group>
@@ -58,9 +70,39 @@
                                     <field name="garden_orientation" />
                                 </group>
                             </page>
+                            <page string="Status">
+                                <group>
+                                    <field name="active" />
+                                    <field name="state" />
+                                </group>
+                            </page>
                         </notebook>
                     </sheet>
                 </form>
+            </field>
+        </record>
+
+        <!-- Search view for estate.property -->
+        <record id="estate_property_view_search" model="ir.ui.view">
+            <field name="name">estate.property.view.search</field>
+            <field name="model">estate.property</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name" string="Title" />
+                    <field name="postcode" string="Postcode" />
+                    <field name="expected_price" />
+                    <field name="bedrooms" />
+                    <field name="living_area" string="Living Area (sqm)" />
+                    <field name="facades"/>
+                    
+                    <!-- Filter for available properties -->
+                    <filter name="available_properties" string="Available Properties" domain="[('state', 'in', ['new', 'offer_received'])]" />
+
+                    <!-- Group by options -->
+                    <group expand="1" string="Group By">
+                        <field name="postcode" string="Postcode" />
+                    </group>
+                </search>
             </field>
         </record>
     </data>
