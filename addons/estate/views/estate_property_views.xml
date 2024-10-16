@@ -27,6 +27,8 @@
                     <field name="selling_price"/>
                     <field name="date_availability" string="Available From"/>
                     <field name="property_type_id" string="Property Type" />
+                    <field name="buyer" />
+                    <field name="sales_person" />
                 </tree>
             </field>
         </record>
@@ -78,6 +80,12 @@
                                     <field name="state" />
                                 </group>
                             </page>
+                            <page string="Other info">
+                                <group>
+                                    <field name="buyer" />
+                                    <field name="sales_person" />
+                                </group>
+                            </page>
                         </notebook>
                     </sheet>
                 </form>
@@ -97,6 +105,8 @@
                     <field name="living_area" string="Living Area (sqm)" />
                     <field name="facades"/>
                     <field name="property_type_id" string="Property Type" />
+                    <field name="buyer" />
+                    <field name="sales_person" />
                     
                     <!-- Filter for available properties -->
                     <filter name="available_properties" string="Available Properties" domain="[('state', 'in', ['new', 'offer_received'])]" />
