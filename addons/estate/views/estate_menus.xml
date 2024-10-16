@@ -1,24 +1,35 @@
 <odoo>
     <!-- Top-level menu -->
-    <menuitem id="estate_menu_root" name="Real Estate">
-        <!-- First-level menu -->
-        <menuitem id="estate_first_level_menu" name="Advertisements">
-            <!-- Menu item linked to the action -->
-            <menuitem 
-                id="estate_property_menu_action" 
-                name="Properties" 
-                action="estate_property_action" 
-            />
-        </menuitem>
+    <!-- Sequence determines the order of menu items; lower numbers appear first -->
+    <menuitem id="estate_menu_root" name="Real Estate" sequence="10"/>
 
-        <!-- First-level menu -->
-        <menuitem id="estate_settings_menu" name="Settings">
-            <!-- Menu item linked to the action -->
-            <menuitem 
-                id="estate_property_type_menu_action" 
-                name="Property Types" 
-                action="estate_property_type_action" 
-            />
-        </menuitem>
+    <!-- First-level menu for Advertisements -->
+    <menuitem id="estate_first_level_menu" name="Advertisements" parent="estate_menu_root" sequence="10">
+        <!-- Menu item linked to the action -->
+        <menuitem 
+            id="estate_property_menu_action" 
+            name="Properties" 
+            action="estate_property_action" 
+            sequence="10"  
+        />
+    </menuitem>
+
+    <!-- First-level menu for Settings -->
+    <menuitem id="estate_settings_menu" name="Settings" parent="estate_menu_root" sequence="20">
+        <!-- Menu item linked to the action for Property Types -->
+        <menuitem 
+            id="estate_property_type_menu_action" 
+            name="Property Types" 
+            action="estate_property_type_action" 
+            sequence="10"
+        />
+
+        <!-- Menu item linked to the action for Property Tags -->
+        <menuitem 
+            id="estate_property_tag_menu_action" 
+            name="Property Tags" 
+            action="estate_property_tag_action" 
+            sequence="20"
+        />
     </menuitem>
 </odoo>
