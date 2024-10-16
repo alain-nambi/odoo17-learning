@@ -48,6 +48,9 @@
                                 <field name="name" class="mb16"/>
                             </h1>
                         </div>
+                        <group name="tag">
+                            <field name="tag_ids" widget="many2many_tags"/>
+                        </group>
                         <!-- Display property details -->
                         <group>
                             <group>

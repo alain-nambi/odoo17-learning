@@ -67,3 +67,7 @@ class EstateProperty(models.Model):
         tracking=True,
         default=lambda self: self.env.user
     )
+    tag_ids = fields.Many2many(
+        'estate.property.tag',
+        string='Tags'
+    )
